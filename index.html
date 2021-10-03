@@ -11,17 +11,43 @@
 <body>
     <header>Movies</header>
     <main class ="container">
-        <div class ="discription-container"></div>
-        <div class ="Genre-container"></div>
+      <!-- description of app -->
+        <div class ="description-container">
+          <p>
+            Don't know what to watch or make for dinner tonight? <br>
+            You pick the movie genre. <br>
+            We'll pick the movie and meal. <br>
+          </p>
+        </div>
+        <!-- movie genre dropdown -->
+        <div class ="genre-container">
+          <select name="genres" id="genres">
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="drama">Drama</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="horror">Horror</option>
+            <option value="mystery">Mystery</option>
+            <option value="romance">Romance</option>
+            <option value="thriller">Thriller</option>
+          </select>
+          <button type="submit" id="button">Submit</button>
+        </div>
+        <!-- movie poster -->
         <div class ="movie-container">
             <div class ="movie-poster">
                 <img src="" alt="Movie Poster">
             </div>
+            <!-- movie info -->
             <div class ="movie-info">
                 <p>movie info here</p>
             </div>
         </div>
+        <!-- food info -->
+        <div class="food-pick"></div>
     </main>
+    
     <footer> created by ....</footer>
     
 </body>
