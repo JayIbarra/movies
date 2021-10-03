@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./css/style.css/">
     <title>Movies</title>
+    
+    
 </head>
 
 <body>
-    <header>Movies</header>
+    <header class="header has-background-light grey is-size-2 has-text-centered has-text-weight-bold">Movies And Food</header>
     <main class ="container">
       <!-- description of app -->
-        <div class ="description-container">
+        <div class ="description-container is-size-3 has-text-centered">
           <p>
             Don't know what to watch or make for dinner tonight? <br>
             You pick the movie genre. <br>
@@ -20,8 +23,8 @@
           </p>
         </div>
         <!-- movie genre dropdown -->
-        <div class ="genre-container">
-          <select name="genres" id="genres">
+        <div class ="genre-container has-text-centered">
+          <select class="dropdown-content has-text-success"  aria-haspopup="true" aria-controls="dropdown-menu" name="genres" id="genres">
             <option value="action">Action</option>
             <option value="comedy">Comedy</option>
             <option value="drama">Drama</option>
@@ -32,12 +35,12 @@
             <option value="romance">Romance</option>
             <option value="thriller">Thriller</option>
           </select>
-          <button type="submit" id="button">Submit</button>
+          <button class="button is-success is-light">Success</button>
         </div>
         <!-- movie poster -->
-        <div class ="movie-container">
+        <div class ="food-container">
             <div class ="movie-poster">
-                <img src="" alt="Movie Poster">
+                <img src="" alt="Food Poster">
             </div>
             <!-- movie info -->
             <div class ="movie-info">
@@ -53,3 +56,5 @@
 
 </body>
 </html>
+
+
