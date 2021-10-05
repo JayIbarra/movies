@@ -12,10 +12,35 @@
 <body>
     <header>Movies</header>
     <main class ="container">
-        <!-- movie section -->
-        <div class ="discription-container"></div>
-        <div class ="Genre-container"></div>
+      <!-- description of app -->
+        <div class ="description-container">
+          <p>
+            Don't know what to watch or make for dinner tonight? <br>
+            You pick the movie genre. <br>
+            We'll pick the movie and meal. <br>
+          </p>
+        </div>
+        <!-- movie genre dropdown -->
+        <div class ="genre-container">
+          <select name="genres" id="genres">
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="drama">Drama</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="horror">Horror</option>
+            <option value="mystery">Mystery</option>
+            <option value="romance">Romance</option>
+            <option value="thriller">Thriller</option>
+          </select>
+          <button type="submit" id="button">Submit</button>
+        </div>
+        <!-- movie poster -->
         <div class ="movie-container">
+            <div class ="movie-poster">
+                <img src="" alt="Movie Poster">
+            </div>
+            <!-- movie info -->
             <div class ="movie-info">
                 <p>movie info here</p>
             </div>
@@ -24,7 +49,11 @@
         
         <div id = "image-div" class ="random-food-container wrapper"></div>
          
+        <!-- food info -->
+        <div class="food-pick"></div>
     </main>
+
+    <script src ="./js/script.js"></script>
     <footer> created by ....</footer>
    
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
