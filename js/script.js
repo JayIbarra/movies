@@ -3,6 +3,16 @@ var foodishEl = document.querySelector("#image-div");
 var movieEl = document.querySelector(".movie-info");
 var btn = document.querySelector(".button");
 
+var genreAction = [];
+var genreComedy = [];
+var genreDrama = [];
+var genreFantasy = [];
+var genreSciFi = [];
+var genreHorror = [];
+var genreMystery = [];
+var genreRomance = [];
+var genreThriller = [];
+
 // first API call to OMDB
 // format api url
 var apiUrl = "http://www.omdbapi.com/?t=scream&apikey=8a73c1f2";
@@ -43,11 +53,10 @@ fetch(apiUrl)
         moviePoster.alt = data['Plot'];
         movieEl.append(moviePoster);
       });
-      
- // UPDATED IDEA INSTEAD OF GENRE DROPDOWN
- // create a search bar
- // provide the user with the movie 
- // Title, Year of release, Rating, Genre, Plot, Poster
+  // 5 movies for each genre
+  // randomly select with Math.random
+
+
 
 
 //second api call 
