@@ -5,11 +5,11 @@ var btn = document.querySelector(".button");
 
 // 5 movies for each genre
   // randomly select with Math.random
-var genreAction = [];
-var genreComedy = [];
-var genreDrama = [];
-var genreFantasy = [];
-var genreSciFi = [];
+var genreAction = ['Gladiator','Black Panther','Kill Bill','John Wick','Die Hard'];
+var genreComedy = ['Shaun of the Dead', 'Kiss Kiss, Bang Bang', 'The 40-Year-Old Virgin','Borat','Superbad'];
+var genreDrama = ['Citizen Kane','Parasite','Casablanca','Knives Out','Lady Bird'];
+var genreFantasy = ['The Hobbit','Ladyhawke','Solomon Kane','Clash of the Titants','The Forbidden Kingdom'];
+var genreSciFi = ['The Wizard of Oz','Avengers: Endgame','Toy Story 4','Spider-Man','Wonder Woman'];
 var genreHorror = ["Rosemary's Baby", "The Exorcist", "The Conjuring", "Scream", "Sinister"];
 var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Darko", "Mystic River"];
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
