@@ -3,11 +3,11 @@ var foodishEl = document.querySelector("#image-div");
 var movieEl = document.querySelector(".movie-info");
 var btn = document.querySelector(".button");
 
-var genreAction = [];
-var genreComedy = [];
-var genreDrama = [];
-var genreFantasy = [];
-var genreSciFi = [];
+var genreAction = ['Gladiator','Black Panther','Kill Bill','John Wick','Die Hard'];
+var genreComedy = ['Shaun of the Dead', 'Kiss Kiss, Bang Bang', 'The 40-Year-Old Virgin','Borat','Superbad'];
+var genreDrama = ['Citizen Kane','Parasite','Casablanca','Knives Out','Lady Bird'];
+var genreFantasy = ['The Hobbit','Ladyhawke','Solomon Kane','Clash of the Titants','The Forbidden Kingdom'];
+var genreSciFi = ['The Wizard of Oz','Avengers: Endgame','Toy Story 4','Spider-Man','Wonder Woman'];
 var genreHorror = [];
 var genreMystery = [];
 var genreRomance = [];
