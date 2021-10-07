@@ -3,15 +3,17 @@ var foodishEl = document.querySelector("#image-div");
 var movieEl = document.querySelector(".movie-info");
 var btn = document.querySelector(".button");
 
+// 5 movies for each genre
+  // randomly select with Math.random
 var genreAction = [];
 var genreComedy = [];
 var genreDrama = [];
 var genreFantasy = [];
 var genreSciFi = [];
-var genreHorror = [];
-var genreMystery = [];
-var genreRomance = [];
-var genreThriller = [];
+var genreHorror = ["Rosemary's Baby", "The Exorcist", "The Conjuring", "Scream", "Sinister"];
+var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Darko", "Mystic River"];
+var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
+var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Parasite", "Mulholland Drive"];
 
 // first API call to OMDB
 // format api url
@@ -53,11 +55,7 @@ fetch(apiUrl)
         moviePoster.alt = data['Plot'];
         movieEl.append(moviePoster);
       });
-  // 5 movies for each genre
-  // randomly select with Math.random
-
-
-
+  
 
 //second api call 
 // format api url
