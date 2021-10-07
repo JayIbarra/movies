@@ -1,9 +1,12 @@
 //variable to store a reference to DOM element
 var foodishEl = document.querySelector("#image-div");
+var movieEl = document.querySelector(".movie-info");
+var btn = document.querySelector(".button");
 
-// first api call to OMDB
+// first API call to OMDB
 // format api url
 var apiUrl = "http://www.omdbapi.com/?t=scream&apikey=8a73c1f2";
+
 //make api request
 fetch(apiUrl)
     .then(function (response) {
@@ -11,8 +14,40 @@ fetch(apiUrl)
     })
     .then(function (data) {
         console.log(data);
-    })
 
+        // grabs the genre from the API
+        var movieGenre = data["Genre"];
+        console.log(movieGenre);
+
+        //grabs the title from the API
+        var movieTitle = data["Title"];
+        console.log(movieTitle);
+    
+         // display genre in console
+        var getSelectedGenre = function() {
+          var getGenres = document.getElementById("genres");
+          var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
+          console.log(selectedGenre);
+        }
+
+          btn.addEventListener("click", function() {
+            getSelectedGenre();
+        })
+
+     // movie poster will appear for each movie
+        var moviePic = data['Poster'];
+        console.log(moviePic);
+
+        var moviePoster = new Image();
+        moviePoster.src = moviePic;
+        moviePoster.alt = data['Plot'];
+        movieEl.append(moviePoster);
+      });
+      
+ // UPDATED IDEA INSTEAD OF GENRE DROPDOWN
+ // create a search bar
+ // provide the user with the movie 
+ // Title, Year of release, Rating, Genre, Plot, Poster
 
 
 //second api call 
@@ -33,8 +68,6 @@ fetch(foodishApiUrl)
             imageEl.setAttribute('src', data[key]);
             //append to <div> container
             foodishEl.appendChild(imageEl);
-        })
-
-
-
-    })
+        });
+      });
+    
