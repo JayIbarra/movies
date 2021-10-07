@@ -4,7 +4,7 @@ var movieEl = document.querySelector(".movie-info");
 var btn = document.querySelector(".button");
 
 // 5 movies for each genre
-  // randomly select with Math.random
+// randomly select with Math.random
 var genreAction = ['Gladiator','Black Panther','Kill Bill','John Wick','Die Hard'];
 var genreComedy = ['Shaun of the Dead', 'Kiss Kiss, Bang Bang', 'The 40-Year-Old Virgin','Borat','Superbad'];
 var genreDrama = ['Citizen Kane','Parasite','Casablanca','Knives Out','Lady Bird'];
