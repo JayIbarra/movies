@@ -16,56 +16,53 @@ var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Dar
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
 var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Parasite", "Mulholland Drive"];
 
-// first API call to OMDB
-// format api url
-var apiUrl = "http://www.omdbapi.com/?" + movieChoice + "&apikey=8a73c1f2";
+
+
+var getSelectedGenre = function () {
+  // first API call to OMDB
+  // format api url
+  var apiUrl = "http://www.omdbapi.com/?" + movieChoice + "&apikey=8a73c1f2";
 
 //make api request
-fetch(apiUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
+  fetch(apiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
 
-    // grabs the genre from the API
-    var movieGenre = data["Genre"];
-    console.log(movieGenre);
+      // grabs the genre from the API
+      var movieGenre = data["Genre"];
+      console.log(movieGenre);
 
-    //grabs the title from the API
-    var movieTitle = data["Title"];
-    console.log(movieTitle);
+      //grabs the title from the API
+      var movieTitle = data["Title"];
+      console.log(movieTitle);
 
-    // display genre in console
-    var getSelectedGenre = function () {
+      // display genre in console
       var getGenres = document.getElementById("genres");
       var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
-      
+        
 
       //random selection of movie from array based on user genre selection
       if (selectedGenre === "Action") {
         var movieChoice = genreAction[Math.floor(Math.random() * genreAction.length)];
         console.log(movieChoice);
       }
-      else if (selectedGenre === "Comedy") {
+    
+      // movie poster will appear for each movie
+      var moviePic = data['Poster'];
+      console.log(moviePic);
 
-      }
-    }
-
+      var moviePoster = new Image();
+      moviePoster.src = moviePic;
+      moviePoster.alt = data['Plot'];
+      movieEl.append(moviePoster);
+    });
     btn.addEventListener("click", function () {
       getSelectedGenre();
-    })
-
-    // movie poster will appear for each movie
-    var moviePic = data['Poster'];
-    console.log(moviePic);
-
-    var moviePoster = new Image();
-    moviePoster.src = moviePic;
-    moviePoster.alt = data['Plot'];
-    movieEl.append(moviePoster);
-  });
-
+    });
+  };
 
 //second api call 
 // format api url
