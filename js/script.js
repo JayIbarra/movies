@@ -57,6 +57,44 @@ var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
 movieEl.innerHTML="";
 //make api request
 fetch(apiUrl)
+<<<<<<< HEAD
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+
+        // grabs the genre from the API
+        var movieGenre = data["Genre"];
+        console.log(movieGenre);
+
+        //grabs the title from the API
+        var movieTitle = data["Title"];
+        console.log(movieTitle);
+    
+         // display genre in console
+        var getSelectedGenre = function() {
+          var getGenres = document.getElementById("genres");
+          var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
+          console.log(selectedGenre);
+        }
+
+          btn.addEventListener("click", function() {
+            getSelectedGenre();
+        })
+
+     // movie poster will appear for each movie
+        var moviePic = data['Poster'];
+        console.log(moviePic);
+
+        var moviePoster = new Image();
+        moviePoster.setAttribute('style', 'width:500px; height:500px')
+        moviePoster.src = moviePic;
+        moviePoster.alt = data['Plot'];
+        movieEl.append(moviePoster);
+      });
+  
+=======
   .then(function (response) {
     return response.json();
   })
@@ -81,6 +119,7 @@ fetch(apiUrl)
     movieEl.append(moviePoster);
   });
 
+>>>>>>> 4a19ef67b5f3bf859b5ed886aa66cf5ea46c6324
 
 //second api call 
 // format api url
@@ -88,6 +127,25 @@ var foodishApiUrl = "https://foodish-api.herokuapp.com/api";
 foodishEl.innerHTML="";
 //make api request
 fetch(foodishApiUrl)
+<<<<<<< HEAD
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+
+        Object.keys(data).forEach((key) => {
+            // create image element
+            var imageEl = document.createElement("img");
+            //insert image to image element
+            imageEl.setAttribute('src', data[key]);
+            imageEl.setAttribute('style', 'width: 500px; height:500px')
+            //append to <div> container
+            foodishEl.appendChild(imageEl);
+        });
+      });
+    
+=======
   .then(function (response) {
     return response.json();
   })
@@ -112,3 +170,4 @@ btn.addEventListener("click", function () {
 
 
 
+>>>>>>> 4a19ef67b5f3bf859b5ed886aa66cf5ea46c6324
