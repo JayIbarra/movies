@@ -56,20 +56,20 @@ var getSelectedGenre = function () {
 var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
 
 //make api request
-  fetch(apiUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
+fetch(apiUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
 
-      // grabs the genre from the API
-      var movieGenre = data["Genre"];
-      console.log(movieGenre);
+    // grabs the genre from the API
+    var movieGenre = data["Genre"];
+    console.log(movieGenre);
 
-      //grabs the title from the API
-      var movieTitle = data["Title"];
-      console.log(movieTitle);
+    //grabs the title from the API
+    var movieTitle = data["Title"];
+    console.log(movieTitle);
 
     // movie poster will appear for each movie
     var moviePic = data['Poster'];
@@ -107,6 +107,3 @@ fetch(foodishApiUrl)
 btn.addEventListener("click", function () {
   getSelectedGenre();
 })
-
-
-
