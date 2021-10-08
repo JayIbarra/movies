@@ -51,6 +51,7 @@ fetch(apiUrl)
         console.log(moviePic);
 
         var moviePoster = new Image();
+        moviePoster.setAttribute('style', 'width:500px; height:500px')
         moviePoster.src = moviePic;
         moviePoster.alt = data['Plot'];
         movieEl.append(moviePoster);
@@ -73,6 +74,7 @@ fetch(foodishApiUrl)
             var imageEl = document.createElement("img");
             //insert image to image element
             imageEl.setAttribute('src', data[key]);
+            imageEl.setAttribute('style', 'width: 500px; height:500px')
             //append to <div> container
             foodishEl.appendChild(imageEl);
         });
