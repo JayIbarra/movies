@@ -16,9 +16,44 @@ var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Dar
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
 var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Parasite", "Mulholland Drive"];
 
-// first API call to OMDB
+// display genre in console
+var getSelectedGenre = function () {
+  var getGenres = document.getElementById("genres");
+  var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
+
+
+  //random selection of movie from array based on user genre selection
+  if (selectedGenre === "Action") {
+    var movieChoice = genreAction[Math.floor(Math.random() * genreAction.length)];
+    console.log(movieChoice);
+  }
+  else if (selectedGenre === "Comedy") {
+    var movieChoice = genreComedy[Math.floor(Math.random() * genreComedy.length)];
+  }
+  else if (selectedGenre === "Drama") {
+    var movieChoice = genreDrama[Math.floor(Math.random() * genreDrama.length)];
+  }
+  else if (selectedGenre === "Fantasy") {
+    var movieChoice = genreFantasy[Math.floor(Math.random() * genreFantasy.length)];
+  }
+  else if (selectedGenre === "Sci-Fi") {
+    var movieChoice = genreSciFi[Math.floor(Math.random() * genreSciFi.length)];
+  }
+  else if (selectedGenre === "Horror") {
+    var movieChoice = genreHorror[Math.floor(Math.random() * genreHorror.length)];
+  }
+  else if (selectedGenre === "Mystery") {
+    var movieChoice = genreMystery[Math.floor(Math.random() * genreMystery.length)];
+  }
+  else if (selectedGenre === "Romance") {
+    var movieChoice = genreRomance[Math.floor(Math.random() * genreRomance.length)];
+  }
+  else if (selectedGenre === "Thriller") {
+    var movieChoice = genreThriller[Math.floor(Math.random() * genreThriller.length)];
+  }
+  // first API call to OMDB
 // format api url
-var apiUrl = "http://www.omdbapi.com/?" + movieChoice + "&apikey=8a73c1f2";
+var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
 
 //make api request
 fetch(apiUrl)
@@ -35,26 +70,6 @@ fetch(apiUrl)
     //grabs the title from the API
     var movieTitle = data["Title"];
     console.log(movieTitle);
-
-    // display genre in console
-    var getSelectedGenre = function () {
-      var getGenres = document.getElementById("genres");
-      var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
-      
-
-      //random selection of movie from array based on user genre selection
-      if (selectedGenre === "Action") {
-        var movieChoice = genreAction[Math.floor(Math.random() * genreAction.length)];
-        console.log(movieChoice);
-      }
-      else if (selectedGenre === "Comedy") {
-
-      }
-    }
-
-    btn.addEventListener("click", function () {
-      getSelectedGenre();
-    })
 
     // movie poster will appear for each movie
     var moviePic = data['Poster'];
@@ -87,4 +102,11 @@ fetch(foodishApiUrl)
       foodishEl.appendChild(imageEl);
     });
   });
+}
+
+btn.addEventListener("click", function () {
+  getSelectedGenre();
+})
+
+
 
