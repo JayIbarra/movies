@@ -2,6 +2,7 @@
 var foodishEl = document.querySelector("#image-div");
 var movieEl = document.querySelector(".movie-info");
 var btn = document.querySelector(".button");
+var movieDetailEl = document.querySelector(".movie-details");
 
 
 // 5 movies for each genre
@@ -14,7 +15,7 @@ var genreSciFi = ['The Wizard of Oz', 'Avengers: Endgame', 'Toy Story 4', 'Spide
 var genreHorror = ["Rosemary's Baby", "The Exorcist", "The Conjuring", "Scream", "Sinister"];
 var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Darko", "Mystic River"];
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
-var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Parasite", "Mulholland Drive"];
+var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Eyes Wide Shut", "Mulholland Drive"];
 
 // display genre in console
 var getSelectedGenre = function () {
@@ -61,24 +62,28 @@ fetch(apiUrl)
     return response.json();
   })
   .then(function (data) {
-    console.log(data);
 
-    // grabs the genre from the API
-    var movieGenre = data["Genre"];
-    console.log(movieGenre);
-
-    //grabs the title from the API
+    //grabs the details of the movie from the API
     var movieTitle = data["Title"];
-    console.log(movieTitle);
+    var movieYear = data["Year"];
+    var movieActors = data["Actors"];
+    var moviePlot = data["Plot"];
+
+    // post movie details above poster - TRY AND GET TO RIGHT SIDE OF POSTER
+    movieDetailEl.innerHTML = "Title: " + movieTitle +  "<br>" + "Year: " + movieYear +  "<br>" +
+    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot;
+    
 
     // movie poster will appear for each movie
     var moviePic = data['Poster'];
-    console.log(moviePic);
 
     var moviePoster = new Image();
     moviePoster.src = moviePic;
     moviePoster.alt = data['Plot'];
+    moviePoster.setAttribute('style', 'height:350px; width:325px');
     movieEl.append(moviePoster);
+
+    
   });
 
 
@@ -98,6 +103,7 @@ fetch(foodishApiUrl)
       var imageEl = document.createElement("img");
       //insert image to image element
       imageEl.setAttribute('src', data[key]);
+      imageEl.setAttribute('style', 'height:350px; width:325px');
       //append to <div> container
       foodishEl.appendChild(imageEl);
     });
@@ -107,6 +113,3 @@ fetch(foodishApiUrl)
 btn.addEventListener("click", function () {
   getSelectedGenre();
 })
-
-
-
