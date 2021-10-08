@@ -107,3 +107,6 @@ fetch(foodishApiUrl)
 btn.addEventListener("click", function () {
   getSelectedGenre();
 })
+
+
+
