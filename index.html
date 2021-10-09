@@ -12,18 +12,18 @@
 </head>
 
 <body>
-    <header class="header has-background-light grey is-size-2 has-text-centered has-text-weight-bold">Dinner And A Movie</header>
+    <header class="header has-background-light grey is-size-2 has-text-centered has-text-weight-bold p-4">Dinner And A Movie</header>
     <main class ="container">
       <!-- description of app -->
-        <div class ="description-container is-size-4 has-text-centered">
+        <div class ="description-container is-size-4 has-text-centered p-3">
           <p>
             Don't know what to watch or make for dinner tonight? <br>
             You pick the movie genre. <br>
-            We'll pick the movie and meal. <br>
+            We'll pick the dinner and a movie. <br>
           </p>
         </div>
         <!-- movie genre dropdown -->
-        <div class ="genre-container has-text-centered">
+        <div class ="genre-container has-text-centered mb-3 pb-5">
           <select class="dropdown-content has-text-success"  aria-haspopup="true" aria-controls="dropdown-menu" name="genres" id="genres">
             <option value="action">Action</option>
             <option value="comedy">Comedy</option>
@@ -37,15 +37,20 @@
           </select>
           <button class="button is-success is-light">Submit</button>
         </div>
+
+        <!-- movie details -->
+        <p class="movie-details has-text-centered"></p>
+
         <!-- movie poster -->
         <div class ="content-container columns">
           <div class="column">
-            <div class ="movie-poster align-items">
+            <div class ="movie-poster">
             </div>
+
             <!-- movie info -->
-            <div class ="movie-info">
+            <div class="movie-info"></div>
             </div>
-          </div>
+
             <!-- food section -->
             <div id = "image-div" class ="random-food-container wrapper column is-half"></div>
         </div>
