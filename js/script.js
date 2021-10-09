@@ -15,7 +15,6 @@ var genreSciFi = ['The Wizard of Oz', 'Avengers: Endgame', 'Toy Story 4', 'Spide
 var genreHorror = ["Rosemary's Baby", "The Exorcist", "The Conjuring", "Scream", "Sinister"];
 var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Darko", "Mystic River"];
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
-
 var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Eyes Wide Shut", "Mulholland Drive"];
 
 
@@ -75,7 +74,7 @@ fetch(apiUrl)
     console.log(movieRatingS,movieRatingV);
     // post movie details above poster - TRY AND GET TO RIGHT SIDE OF POSTER
     movieDetailEl.innerHTML = "Title: " + movieTitle +  "<br>" + "Year: " + movieYear +  "<br>" +
-    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot +  "<br>" + "Rating: " + movieRatingS + " - " + movieRatingV;
+    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot +  "<br>" + "Rating: " + movieRatingS + " - " + movieRatingV + "<br><br>";
     
 
     // movie poster will appear for each movie
