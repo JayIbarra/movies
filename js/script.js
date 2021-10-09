@@ -62,16 +62,18 @@ fetch(apiUrl)
     return response.json();
   })
   .then(function (data) {
-
+    console.log(data);
     //grabs the details of the movie from the API
     var movieTitle = data["Title"];
+    var movieRatingS = data.Ratings[1].Source;
+    var movieRatingV = data.Ratings[1].Value;
     var movieYear = data["Year"];
     var movieActors = data["Actors"];
     var moviePlot = data["Plot"];
-
+    console.log(movieRatingS,movieRatingV);
     // post movie details above poster - TRY AND GET TO RIGHT SIDE OF POSTER
     movieDetailEl.innerHTML = "Title: " + movieTitle +  "<br>" + "Year: " + movieYear +  "<br>" +
-    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot;
+    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot +  "<br>" + "Rating: " + movieRatingS + " - " + movieRatingV;
     
 
     // movie poster will appear for each movie
