@@ -15,13 +15,15 @@ var genreSciFi = ['The Wizard of Oz', 'Avengers: Endgame', 'Toy Story 4', 'Spide
 var genreHorror = ["Rosemary's Baby", "The Exorcist", "The Conjuring", "Scream", "Sinister"];
 var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Darko", "Mystic River"];
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Love and Basketball"];
+
 var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Eyes Wide Shut", "Mulholland Drive"];
+
 
 // display genre in console
 var getSelectedGenre = function () {
   var getGenres = document.getElementById("genres");
   var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
-
+  
 
   //random selection of movie from array based on user genre selection
   if (selectedGenre === "Action") {
@@ -55,7 +57,7 @@ var getSelectedGenre = function () {
   // first API call to OMDB
 // format api url
 var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
-
+movieEl.innerHTML="";
 //make api request
 fetch(apiUrl)
   .then(function (response) {
@@ -92,6 +94,7 @@ fetch(apiUrl)
 //second api call 
 // format api url
 var foodishApiUrl = "https://foodish-api.herokuapp.com/api";
+foodishEl.innerHTML="";
 //make api request
 fetch(foodishApiUrl)
   .then(function (response) {
