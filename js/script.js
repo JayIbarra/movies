@@ -54,7 +54,7 @@ var getSelectedGenre = function () {
   }
   // first API call to OMDB
   // format api url
-  var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
+  var apiUrl = "https://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
   movieEl.innerHTML = "";
   //make api request
   fetch(apiUrl)
