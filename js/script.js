@@ -62,16 +62,18 @@ fetch(apiUrl)
     return response.json();
   })
   .then(function (data) {
-
+    console.log(data);
     //grabs the details of the movie from the API
     var movieTitle = data["Title"];
+    var movieRatingS = data.Ratings[1].Source;
+    var movieRatingV = data.Ratings[1].Value;
     var movieYear = data["Year"];
     var movieActors = data["Actors"];
     var moviePlot = data["Plot"];
-
+    console.log(movieRatingS,movieRatingV);
     // post movie details above poster - TRY AND GET TO RIGHT SIDE OF POSTER
     movieDetailEl.innerHTML = "Title: " + movieTitle +  "<br>" + "Year: " + movieYear +  "<br>" +
-    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot;
+    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot +  "<br>" + "Rating: " + movieRatingS + " - " + movieRatingV;
     
 
     // movie poster will appear for each movie
@@ -80,9 +82,10 @@ fetch(apiUrl)
     var moviePoster = new Image();
     moviePoster.src = moviePic;
     moviePoster.alt = data['Plot'];
-    moviePoster.setAttribute('style', 'height:350px; width:325px');
+    moviePoster.setAttribute('style', 'height:auto; width:100%');
     movieEl.append(moviePoster);
-
+    // call setMovies to local storage here
+    setMovieToLocalStorage(movieTitle);
     
   });
 
@@ -114,3 +117,46 @@ fetch(foodishApiUrl)
 btn.addEventListener("click", function () {
   getSelectedGenre();
 })
+
+// Save random movie suggestions to localStorage using `setItem()`
+
+function setMovieToLocalStorage(title) {
+  // add movie to local storage
+  var movieArray = JSON.parse(localStorage.getItem('movieTitles')) || [];
+  movieArray.push(title);
+  localStorage.setItem('movieTitles', JSON.stringify(movieArray));
+  getMoviesFromLocalStorage()
+  // CALL get movies from local storage
+}
+
+function getMoviesFromLocalStorage() {
+  // get movies from local storage 
+  var previousResultsHolder = document.getElementById("previous-searches")
+  previousResultsHolder.innerHTML = ""
+  var movieArray = JSON.parse(localStorage.getItem('movieTitles')) || [];
+  if (movieArray.length <= 0) {
+    var h3 = document.createElement("h3")
+    h3.textContent = "no searches yet"
+    previousResultsHolder.appendChild(h3)
+  }
+  else {
+    var ul = document.createElement("ul")
+    for (i = 0; i < movieArray.length; i++) {
+      var li = document.createElement("li")
+      li.textContent = movieArray[i];
+      ul.appendChild(li)
+    }
+    previousResultsHolder.appendChild(ul)
+  }
+  // AND
+  // display them (if none, display no movies searched message)
+}
+
+function clearMoviesFromLocalStorage() {
+  localStorage.clear()
+  getMoviesFromLocalStorage()
+  // clear the local storage
+  // CALL get movies from local storage
+}
+
+document.getElementById("clear-previous-searches").addEventListener("click", clearMoviesFromLocalStorage)
