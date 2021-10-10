@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Dinner and a Movie</title>
-    
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Dinner and a Movie</title>
+
+
 </head>
 
 <body>
@@ -38,8 +39,8 @@
           <button class="button is-success is-light">Submit</button>
         </div>
 
-        <!-- movie details -->
-        <p class="movie-details has-text-centered"></p>
+    <!-- movie details -->
+    <p class="movie-details has-text-centered"></p>
 
         <!-- movie poster -->
         <div class ="content-container columns is-mobile">
@@ -47,9 +48,9 @@
             <div class ="movie-poster">
             </div>
 
-            <!-- movie info -->
-            <div class="movie-info"></div>
-            </div>
+        <!-- movie info -->
+        <div class="movie-info"></div>
+      </div>
 
             <!-- food section -->
             <div id ="image-div" class="random-food-container wrapper column is-half is-mobile"></div>
@@ -63,16 +64,25 @@
         </div>
         
 
-    </main>
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Made by</strong> Nadine Paez Andrade, Jay Ibarra, Mladen Makivic, and Keshia-Lee Martin.
-        </p>
-   
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+    <!-- previous searches -->
+    <div id="previous">
+      <h3 class="has-text-weight-bold m-2">Previous Movie Searches</h3>
+      <div class="m-2" id="previous-searches"></div>
+      <button class="button is-success is-light" id="clear-previous-searches">Clear Search History</button>
+    </div>
+
+
+  </main>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Made by</strong> Nadine Paez Andrade, Jay Ibarra, Mladen Makivic, and Keshia-Lee Martin.
+      </p>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script src="./js/script.js"></script>
 </body>
+
 </html>
-
-
