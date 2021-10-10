@@ -26,7 +26,7 @@
         </div>
         <!-- movie genre dropdown -->
         <div class ="genre-container has-text-centered mb-3 pb-5">
-          <select class="dropdown-content has-text-success"  aria-haspopup="true" aria-controls="dropdown-menu" name="genres" id="genres">
+          <select class="dropdown-content has-text-success m-2 is-size-6"  aria-haspopup="true" aria-controls="dropdown-menu" name="genres" id="genres">
             <option value="action">Action</option>
             <option value="comedy">Comedy</option>
             <option value="drama">Drama</option>
@@ -54,11 +54,14 @@
             </div>
 
             <!-- food section -->
-            <div id = "image-div" class ="random-food-container wrapper column is-half"></div>
+            <div id ="image-div" class="random-food-container wrapper column is-half"></div>
         </div>
+        
+        <!-- previous searches -->
         <div id="previous">
-          <div id="previous-searches"></div>
-          <button id="clear-previous-searches"></button>
+          <h3 class="has-text-weight-bold m-2">Previous Movie Searches</h3>
+          <div class="m-2" id="previous-searches"></div>
+          <button class="button is-success is-light" id="clear-previous-searches">Clear Search History</button>
         </div>
         
 
