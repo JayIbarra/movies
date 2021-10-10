@@ -17,7 +17,6 @@ var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Dar
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Titanic"];
 var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Eyes Wide Shut", "Mulholland Drive"];
 
-
 // display genre in console
 var getSelectedGenre = function () {
   var getGenres = document.getElementById("genres");
