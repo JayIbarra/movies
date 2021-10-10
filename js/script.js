@@ -15,7 +15,7 @@ var genreSciFi = ['The Wizard of Oz', 'Avengers: Endgame', 'Toy Story 4', 'Spide
 var genreHorror = ["Rosemary's Baby", "The Exorcist", "The Conjuring", "Scream", "Sinister"];
 var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Darko", "Mystic River"];
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Titanic"];
-var genreThriller = ["Silence of the Lambs", "Basic Instinct", "Memento", "Eyes Wide Shut", "Mulholland Drive"];
+var genreThriller = ["Split", "Basic Instinct", "Memento", "Eyes Wide Shut", "Candyman"];
 
 
 // display genre in console
@@ -147,7 +147,7 @@ function getMoviesFromLocalStorage() {
       li.textContent = movieArray[i];
       ul.appendChild(li)
     }
-    previousResultsHolder.appendChild(ul)
+    previousResultsHolder.appendChild(ul);
   }
   // AND
   // display them (if none, display no movies searched message)
