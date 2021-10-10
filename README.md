@@ -5,7 +5,7 @@ Made by Nadine Paez Andrade, Jay Ibarra, Mladen Makivic, and Keshia-Lee Martin
 For our project, we created a page called Dinner and a Movie. From a dropdown choice user can choose a genre and click the submit button. Then user will be provided with a random movie and food selection. The webpage will show a movie poster, movie info (title, actors, plot, rating), and a food image. We used two APIs: The Open Movie Database (OMDb) and Foodish. For our CSS Framework, we used Bulma.
 
 ## Dinner and a Movie Link
-The following link navigates to Dinner and a Movie: 
+The following link navigates to Dinner and a Movie: https://jayibarra.github.io/movies/
 
 ## Screenshots
 When our project link is opened, the user sees the following.
