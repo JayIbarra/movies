@@ -17,12 +17,11 @@ var genreMystery = ["The Girl on the Train", "Clue", "The Fugitive", "Donnie Dar
 var genreRomance = ["Love Actually", "The Notebook", "Dirty Dancing", "Pretty Woman", "Titanic"];
 var genreThriller = ["Split", "Basic Instinct", "Memento", "Eyes Wide Shut", "Candyman"];
 
-
 // display genre in console
 var getSelectedGenre = function () {
   var getGenres = document.getElementById("genres");
   var selectedGenre = getGenres.options[getGenres.selectedIndex].text;
-  
+
 
   //random selection of movie from array based on user genre selection
   if (selectedGenre === "Action") {
@@ -54,92 +53,98 @@ var getSelectedGenre = function () {
     var movieChoice = genreThriller[Math.floor(Math.random() * genreThriller.length)];
   }
   // first API call to OMDB
-// format api url
-var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
-movieEl.innerHTML="";
-//make api request
-fetch(apiUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-    //grabs the details of the movie from the API
-    var movieTitle = data["Title"];
-    var movieRatingS = data.Ratings[1].Source;
-    var movieRatingV = data.Ratings[1].Value;
-    var movieYear = data["Year"];
-    var movieActors = data["Actors"];
-    var moviePlot = data["Plot"];
-    console.log(movieRatingS,movieRatingV);
-    // post movie details above poster - TRY AND GET TO RIGHT SIDE OF POSTER
-    movieDetailEl.innerHTML = "Title: " + movieTitle +  "<br>" + "Year: " + movieYear +  "<br>" +
-    "Actors: " + movieActors +  "<br>" + "Plot: " + moviePlot +  "<br>" + "Rating: " + movieRatingS + " - " + movieRatingV + "<br><br>";
-    
-
-    // movie poster will appear for each movie
-    var moviePic = data['Poster'];
-
-    var moviePoster = new Image();
-    moviePoster.src = moviePic;
-    moviePoster.alt = data['Plot'];
-    moviePoster.setAttribute('style', 'height:auto; width:100%');
-    movieEl.append(moviePoster);
-    // call setMovies to local storage here
-    setMovieToLocalStorage(movieTitle);
-    
-  });
+  // format api url
+  var apiUrl = "http://www.omdbapi.com/?t=" + movieChoice + "&apikey=8a73c1f2";
+  movieEl.innerHTML = "";
+  //make api request
+  fetch(apiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      //grabs the details of the movie from the API
+      var movieTitle = data["Title"];
+      var movieRatingS = data.Ratings[1].Source;
+      var movieRatingV = data.Ratings[1].Value;
+      var movieYear = data["Year"];
+      var movieActors = data["Actors"];
+      var moviePlot = data["Plot"];
+      console.log(movieRatingS, movieRatingV);
+      // post movie details above poster - TRY AND GET TO RIGHT SIDE OF POSTER
+      movieDetailEl.innerHTML = "Title: " + movieTitle + "<br>" + "Year: " + movieYear + "<br>" +
+        "Actors: " + movieActors + "<br>" + "Plot: " + moviePlot + "<br>" + "Rating: " + movieRatingS + " - " + movieRatingV + "<br><br>";
 
 
-//second api call 
-// format api url
-var foodishApiUrl = "https://foodish-api.herokuapp.com/api";
-foodishEl.innerHTML="";
-//make api request
-fetch(foodishApiUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
+      // movie poster will appear for each movie
+      var moviePic = data['Poster'];
 
-    Object.keys(data).forEach((key) => {
-      // create image element
-      var imageEl = document.createElement("img");
-      //insert image to image element
-      imageEl.setAttribute('src', data[key]);
-      imageEl.setAttribute('style', 'height:350px; width:325px');
-      //append to <div> container
-      foodishEl.appendChild(imageEl);
+      var moviePoster = new Image();
+      moviePoster.src = moviePic;
+      moviePoster.alt = data['Plot'];
+      moviePoster.setAttribute('style', 'height:auto; width:100%');
+      movieEl.append(moviePoster);
+      // call setMovies to local storage here
+      setMovieToLocalStorage(movieTitle);
+
     });
-  });
+
+
+  //second api call to foodish
+  // format api url
+  var foodishApiUrl = "https://foodish-api.herokuapp.com/api";
+  foodishEl.innerHTML = "";
+  //make api request
+  fetch(foodishApiUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      Object.keys(data).forEach((key) => {
+        // create image element
+        var imageEl = document.createElement("img");
+        //insert image to image element
+        imageEl.setAttribute('src', data[key]);
+        imageEl.setAttribute('style', 'height:auto; width:100%');
+        //append to <div> container
+        foodishEl.appendChild(imageEl);
+      });
+    });
 }
 
 btn.addEventListener("click", function () {
   getSelectedGenre();
 })
 
-// Save random movie suggestions to localStorage using `setItem()`
-
+// FUNCTION to save random movie suggestions to localStorage using `setItem()`
 function setMovieToLocalStorage(title) {
-  // add movie to local storage
+  // add movie to local storage, if no movies yet set empty array
   var movieArray = JSON.parse(localStorage.getItem('movieTitles')) || [];
+  //add titel to array
   movieArray.push(title);
+  //save array to local storage
   localStorage.setItem('movieTitles', JSON.stringify(movieArray));
+  //call get movies from local storage
   getMoviesFromLocalStorage()
-  // CALL get movies from local storage
+  
 }
-
+//FUNCTION to get movies from local storage for display
 function getMoviesFromLocalStorage() {
-  // get movies from local storage 
+  //create container 
   var previousResultsHolder = document.getElementById("previous-searches")
+  //empty innerHTML before displaying titles
   previousResultsHolder.innerHTML = ""
+  // get movies from local storage
   var movieArray = JSON.parse(localStorage.getItem('movieTitles')) || [];
+  //if no movies yet display message to user
   if (movieArray.length <= 0) {
     var h3 = document.createElement("h3")
     h3.textContent = "no searches yet"
     previousResultsHolder.appendChild(h3)
   }
+  //if movies thencreate list items and append to container
   else {
     var ul = document.createElement("ul")
     for (i = 0; i < movieArray.length; i++) {
@@ -149,15 +154,14 @@ function getMoviesFromLocalStorage() {
     }
     previousResultsHolder.appendChild(ul);
   }
-  // AND
-  // display them (if none, display no movies searched message)
-}
 
+}
+// clear the local storage
 function clearMoviesFromLocalStorage() {
   localStorage.clear()
-  getMoviesFromLocalStorage()
-  // clear the local storage
   // CALL get movies from local storage
-}
+  getMoviesFromLocalStorage()
 
+}
+//event listener button to clear title history
 document.getElementById("clear-previous-searches").addEventListener("click", clearMoviesFromLocalStorage)

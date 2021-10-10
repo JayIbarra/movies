@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Dinner and a Movie</title>
-    
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Dinner and a Movie</title>
+
+
 </head>
 
 <body>
-
     <header class="header has-background-light grey is-size-2 has-text-centered has-text-weight-bold has-text-black-bis">Dinner And A Movie</header>
-
     <main class ="container">
       <!-- description of app -->
         <div class ="description-container is-size-4 has-text-centered p-3">
@@ -40,21 +39,21 @@
           <button class="button is-success is-light">Submit</button>
         </div>
 
-        <!-- movie details -->
-        <p class="movie-details has-text-centered"></p>
+    <!-- movie details -->
+    <p class="movie-details has-text-centered"></p>
 
         <!-- movie poster -->
-        <div class ="content-container columns">
+        <div class ="content-container columns is-mobile">
           <div class="column">
             <div class ="movie-poster">
             </div>
 
-            <!-- movie info -->
-            <div class="movie-info"></div>
-            </div>
+        <!-- movie info -->
+        <div class="movie-info"></div>
+      </div>
 
             <!-- food section -->
-            <div id ="image-div" class="random-food-container wrapper column is-half"></div>
+            <div id ="image-div" class="random-food-container wrapper column is-half is-mobile"></div>
         </div>
         
         <!-- previous searches -->
@@ -64,18 +63,17 @@
           <button class="button is-success is-light" id="clear-previous-searches">Clear Search History</button>
           <br><br>
         </div>
-        
 
-    </main>
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Made by</strong> Nadine Paez Andrade, Jay Ibarra, Mladen Makivic, and Keshia-Lee Martin
-        </p>
-   
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+  </main>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Made by</strong> Nadine Paez Andrade, Jay Ibarra, Mladen Makivic, and Keshia-Lee Martin.
+      </p>
+
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script src="./js/script.js"></script>
 </body>
 </html>
-
-
